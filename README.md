@@ -1,8 +1,8 @@
 # Blossom Books (for tech test)
 
-Link
+Link: 
 
-
+![BB](https://user-images.githubusercontent.com/119549394/232633436-bba6ec67-abfd-4c36-af96-d1a62c0000d2.png)
 
 ## Overview
 
@@ -28,13 +28,19 @@ To create a web application that fetches data from the Google Books API (query b
 
 ## Build Steps
 
--   how to build / run project
--   use proper code snippets if there are any commands to run
+1. Run the Frontend React application, by executing the following commands from the root folder of this project:
+
+       cd book-finder
+       npm install
+       npm run dev
 
 ## Design Goals / Approach
 
--   Design goals
--   why did you implement this the way you did?
+-   In terms of the actual design for the frontend. I wanted to keep it simple (minimalist) yet still modern with a very basic color scheme/rules (60-30-10 rule, rule of thirds). I feel that I can always add things and change things around when I create something that is “minimalist” in style. 
+
+-   My approach was to set everything up (React, TypeScript, Redux, RTL, Jest), create the components one by one, and ensure that the logic for everything was working before doing responsiveness or “cleaning” up the code further. I ensured that my organization was paramount by having everything sorted and organized before jumping into the code. This led to a quicker project completion as well as less refactoring needing to be done.
+
+- As well, I have completed a similar project to this (Link: https://github.com/StanleyY7/googlebooks), however that project used modals to change what was being displayed and so I wanted to use React-Router this time to see first-hand which approach is more efficient to create.  
 
 ## Features
 
@@ -43,6 +49,14 @@ To create a web application that fetches data from the Google Books API (query b
 - Landing/welcome page
 - Responsive
 - Testing
+
+### Creativity
+
+- Box shadow.
+- Light-color scheme.
+- BookCard component and Table Component looks like a book. 
+- Landing/Welcome Page.
+- I created the icon/logo.
 
 ## Change logs
 
