@@ -62,7 +62,7 @@ To create a web application that fetches data from the Google Books API (query b
 
 ## Change logs
 
-### 04/17/2023
+### 17/04/2023
 
 - Setup the project with relevant dependencies (React, Redux (Toolkit), React-Router, RTL, Jest, React-Query).
 - Created components and pages for the project.
@@ -71,6 +71,12 @@ To create a web application that fetches data from the Google Books API (query b
 - Creation and configuration of test environment and data.
 - Tests for most components (e2e, integration, navigation) and tests for redux.
 - Structure of Readme.
+
+### 18/04/2023
+
+- Setup Github Workflow for tests.
+- Added badge for workflow to Readme, completed Readme.
+- More tests
 
 ## Challenges
 
