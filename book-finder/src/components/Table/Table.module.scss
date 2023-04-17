@@ -1,7 +1,8 @@
 .Table__wrapper {
-  width: 50vw;
+  width: 60vw;
   height: 50vw;
   margin: auto;
+  padding-bottom: 4rem;
 }
 
 .Table__container {
@@ -11,6 +12,7 @@
   height: max-content;
   padding: 1rem;
   margin-top: 6rem;
+  box-shadow: 12px 12px 2px 1px rgb(126, 232, 232);
 }
 
 th {

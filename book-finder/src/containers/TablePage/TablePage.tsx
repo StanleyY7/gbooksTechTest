@@ -1,5 +1,5 @@
-import BackButton from "../components/BackButton/BackButton";
-import Table from "../components/Table/Table";
+import BackButton from "../../components/BackButton/BackButton";
+import Table from "../../components/Table/Table";
 
 const TablePage = () => {
   return (

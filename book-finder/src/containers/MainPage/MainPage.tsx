@@ -1,5 +1,5 @@
-import Main from "../components/Main/Main";
-import DisplayButton from "../components/DisplayButton/DisplayButton";
+import Main from "../../components/Main/Main";
+import DisplayButton from "../../components/DisplayButton/DisplayButton";
 
 const MainPage = () => {
   return (

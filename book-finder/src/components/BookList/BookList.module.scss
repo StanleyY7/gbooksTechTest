@@ -1,0 +1,9 @@
+.bookTitle {
+  transform: 0.5s ease;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  &:hover {
+    color: rgb(0, 166, 166);
+  }
+}
