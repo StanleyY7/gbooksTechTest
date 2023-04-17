@@ -20,3 +20,17 @@ th {
   font-size: 1.25rem;
   padding-bottom: 0.5rem;
 }
+
+@media only screen and (max-width: 400px) {
+  .Table__wrapper {
+    transform: scale(0.6);
+    width: 110vw;
+    margin: 0rem -1.5rem;
+    margin-top: -5rem;
+  }
+
+  th {
+    padding-right: 2rem;
+    padding-bottom: 4rem;
+  }
+}
