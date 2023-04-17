@@ -1,0 +1,22 @@
+name: Jest & RTL Tests
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        cd ./book-finder
+        npm install
+    - name: Run tests
+      run: |
+        cd ./book-finder
+        npm run test
