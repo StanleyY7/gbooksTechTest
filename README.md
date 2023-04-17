@@ -4,6 +4,8 @@ Link:
 
 ![BB](https://user-images.githubusercontent.com/119549394/232633436-bba6ec67-abfd-4c36-af96-d1a62c0000d2.png)
 
+<img width="250" src="https://github.com/StanleyY7/gbooksTechTest/actions/workflows/main.yml/badge.svg"/>
+
 ## Overview
 
 To create a web application that fetches data from the Google Books API (query being "flowers") and displays it on a table. Further information about the books (image, description) should be displayed somehow (I did it via a new route upon clicking the relevant book in the table). Design and creativity was left to us to determine.
