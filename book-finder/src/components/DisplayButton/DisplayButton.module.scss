@@ -37,3 +37,9 @@
     font-size: 1.1rem;
   }
 }
+
+@media only screen and (min-height: 1600px) {
+  .DisplayButton__wrapper {
+    top: 52%;
+  }
+}

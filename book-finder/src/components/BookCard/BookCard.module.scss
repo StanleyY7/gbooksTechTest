@@ -1,8 +1,4 @@
 .BookCard__wrapper {
-  position: fixed;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
   border: 0.125rem groove black;
   height: max-content;
   width: 50vw;
@@ -13,6 +9,14 @@
     text-align: center;
     padding: 1rem;
   }
+}
+
+.alignment__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .image__container {
@@ -61,8 +65,7 @@
 @media only screen and (max-width: 281px) {
   .BookCard__wrapper {
     transform: scale(0.6);
-    top: -15%;
-    left: 10%;
+
     width: 80vw;
     height: min-content;
   }
@@ -71,9 +74,23 @@
 @media only screen and (min-width: 281px) and (max-width: 400px) {
   .BookCard__wrapper {
     transform: scale(0.7);
-    top: -6%;
-    left: 10%;
+
     width: 80vw;
     height: min-content;
+  }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 800px) {
+  .BookCard__wrapper {
+    transform: scale(0.8);
+
+    width: 80vw;
+    height: min-content;
+  }
+}
+
+@media only screen and (max-height: 440px) {
+  .BookCard__wrapper {
+    margin-top: 6rem;
   }
 }
