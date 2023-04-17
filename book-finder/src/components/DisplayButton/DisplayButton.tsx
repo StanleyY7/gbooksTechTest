@@ -7,7 +7,7 @@ const DisplayButton = () => {
       <section className={styles.DisplayButton__wrapper}>
         <div className={styles.DisplayButton__container}>
           <NavLink to={"/displayAll"}>
-            <button className={styles.DisplayButton}>Display All</button>
+            <button className={styles.DisplayButton}>Display</button>
           </NavLink>
         </div>
       </section>

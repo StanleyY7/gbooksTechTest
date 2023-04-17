@@ -4,10 +4,11 @@
   top: 50%;
   left: 50%;
   border: 0.125rem groove black;
-  height: 80vh;
+  height: max-content;
   width: 50vw;
   border-radius: 0.5rem;
   box-shadow: 12px 12px 2px 1px rgb(126, 232, 232);
+
   > h1 {
     text-align: center;
     padding: 1rem;
@@ -31,22 +32,27 @@
 .previewLink {
   text-decoration: none;
   color: rgb(21, 131, 131);
+  transition: 0.5s ease;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .description__wrapper {
-  height: max-content;
+  height: 15rem;
   width: 42.5vw;
-  background-color: bisque;
+  background-color: #faf3dd;
   border-radius: 0.5rem;
-
   margin: auto;
+  overflow-y: scroll;
+
   > p {
     padding: 1.25rem;
   }
 }
 
 .BookCard__textContent {
-  margin: 4rem;
+  margin: 2rem;
   > p {
     margin-bottom: 0.75rem;
   }

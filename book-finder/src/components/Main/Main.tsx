@@ -1,4 +1,5 @@
 import styles from "./Main.module.scss";
+import flower from "../../assets/flower.svg";
 
 const Main = () => {
   return (
@@ -8,6 +9,8 @@ const Main = () => {
           <h1>Blossom Books</h1>
         </div>
       </section>
+      <img src={flower} className={styles.flower} />
+      <div className={styles.banner}></div>
     </>
   );
 };

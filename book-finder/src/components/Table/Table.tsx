@@ -1,4 +1,5 @@
 import BookList from "../BookList/BookList";
+import Sort from "../Sort/Sort";
 import styles from "./Table.module.scss";
 
 const Table = () => {
@@ -6,6 +7,7 @@ const Table = () => {
     <>
       <section className={styles.Table__wrapper}>
         <div className={styles.Table__container}>
+          <Sort />
           <table>
             <thead>
               <tr>

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setData, setSelectBook } from "../Redux/GlobalSlice";
+import { setData, setSelectBook, setSortOrder } from "../Redux/GlobalSlice";
 import { fetchBooks } from "../../services/books";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -9,13 +9,35 @@ const BookList = () => {
   const selectedBook = useSelector((state: any) => state.global.selectBook);
   const dispatch = useDispatch();
 
+  const sortOrder = useSelector((state: any) => state.global.sortOrder);
+
   useEffect(() => {
-    const getData = async () => {
-      const bookData = await fetchBooks();
-      dispatch(setData(bookData));
+    const fetchData = async () => {
+      const data = await fetchBooks();
+      const sortedData = data.slice().sort((a: any, b: any) => {
+        if (sortOrder === "title") {
+          return a.volumeInfo.title.localeCompare(b.volumeInfo.title);
+        } else if (sortOrder === "authors") {
+          const authorA = a.volumeInfo.authors ? a.volumeInfo.authors[0] : "";
+          const authorB = b.volumeInfo.authors ? b.volumeInfo.authors[0] : "";
+          return authorA.localeCompare(authorB);
+        } else if (sortOrder === "publishedDate") {
+          const dateA = a.volumeInfo.publishedDate
+            ? a.volumeInfo.publishedDate
+            : "";
+          const dateB = b.volumeInfo.publishedDate
+            ? b.volumeInfo.publishedDate
+            : "";
+          return dateA.localeCompare(dateB);
+        } else {
+          return 0;
+        }
+      });
+      dispatch(setData(sortedData));
+      dispatch(setSortOrder(sortOrder));
     };
-    getData();
-  }, []);
+    fetchData();
+  }, [sortOrder]);
 
   const books = useSelector((state: any) => state.global.data);
   return (

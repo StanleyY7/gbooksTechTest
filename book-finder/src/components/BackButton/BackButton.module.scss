@@ -1,14 +1,15 @@
 .BackButton {
   position: fixed;
-  top: 1%;
+  top: 1.5%;
   left: 1%;
   border-radius: 0.5rem;
   border: none;
-  padding: 0.5rem;
+  padding: 0.75rem;
   background-color: black;
   color: white;
   cursor: pointer;
   transition: 0.5s ease;
+  font-size: 1.05rem;
   &:hover {
     transform: scale(1.04);
     background-color: rgb(126, 232, 232);
