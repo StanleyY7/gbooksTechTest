@@ -1,0 +1,11 @@
+.main__container {
+  .mainLogo {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 46%;
+    left: 50%;
+    > h1 {
+      font-size: 5.25rem;
+    }
+  }
+}

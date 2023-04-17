@@ -1,0 +1,20 @@
+.Table__wrapper {
+  width: 50vw;
+  height: 50vw;
+  margin: auto;
+}
+
+.Table__container {
+  border: 0.25rem solid black;
+  width: 100%;
+  border-radius: 0.5rem;
+  height: max-content;
+  padding: 1rem;
+  margin-top: 6rem;
+}
+
+th {
+  padding-right: 0.8rem;
+  font-size: 1.25rem;
+  padding-bottom: 0.5rem;
+}
