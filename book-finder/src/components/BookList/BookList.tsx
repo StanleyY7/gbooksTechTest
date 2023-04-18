@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./BookList.module.scss";
 
-const BookList = () => {
+const BookList: any = () => {
   const selectedBook = useSelector((state: any) => state.global.selectBook);
   const dispatch = useDispatch();
 
