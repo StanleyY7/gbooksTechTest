@@ -1,54 +1,68 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setData, setSelectBook, setSortOrder } from "../Redux/GlobalSlice";
+import {
+  setData,
+  setSelectBook,
+  setSortOrder,
+  setSortedBooks,
+} from "../Redux/GlobalSlice";
 import { fetchBooks } from "../../services/books";
+import { useQuery } from "react-query";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./BookList.module.scss";
 
 const BookList = () => {
-  const selectedBook = useSelector((state: any) => state.global.selectBook);
   const dispatch = useDispatch();
 
   const sortOrder = useSelector((state: any) => state.global.sortOrder);
+  const books = useSelector((state: any) => state.global.data);
+  const sortedBooks = useSelector((state: any) => state.global.sortedBooks);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchBooks();
-      const sortedData = data.slice().sort((a: any, b: any) => {
-        if (sortOrder === "title") {
-          return a.volumeInfo.title.localeCompare(b.volumeInfo.title);
-        } else if (sortOrder === "authors") {
-          const authorA = a.volumeInfo.authors ? a.volumeInfo.authors[0] : "";
-          const authorB = b.volumeInfo.authors ? b.volumeInfo.authors[0] : "";
-          return authorA.localeCompare(authorB);
-        } else if (sortOrder === "publishedDate") {
-          const dateA = a.volumeInfo.publishedDate
-            ? a.volumeInfo.publishedDate
-            : "";
-          const dateB = b.volumeInfo.publishedDate
-            ? b.volumeInfo.publishedDate
-            : "";
-          return dateA.localeCompare(dateB);
-        } else {
-          return 0;
-        }
-      });
-      dispatch(setData(sortedData));
-      dispatch(setSortOrder(sortOrder));
+      dispatch(setData(data));
     };
-    fetchData();
-  }, [sortOrder]);
 
-  const books = useSelector((state: any) => state.global.data);
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    let sortFunc: any = () => console.log("unimplemented sort function");
+
+    if (sortOrder === "title") {
+      sortFunc = (a: any, b: any) =>
+        a.volumeInfo.title.localeCompare(b.volumeInfo.title);
+    } else if (sortOrder === "authors") {
+      sortFunc = (a: any, b: any) => {
+        const authorA = a.volumeInfo.authors ? a.volumeInfo.authors[0] : "";
+        const authorB = b.volumeInfo.authors ? b.volumeInfo.authors[0] : "";
+        return authorA.localeCompare(authorB);
+      };
+    } else if (sortOrder === "publishedDate") {
+      sortFunc = (a: any, b: any) => {
+        const dateA = a.volumeInfo.publishedDate
+          ? a.volumeInfo.publishedDate
+          : "";
+        const dateB = b.volumeInfo.publishedDate
+          ? b.volumeInfo.publishedDate
+          : "";
+        return dateA.localeCompare(dateB);
+      };
+    }
+
+    dispatch(setSortedBooks([...books].sort(sortFunc)));
+    dispatch(setSortOrder(sortOrder));
+  }, [sortOrder, books]);
+
   return (
     <>
-      {books &&
-        books.map((book: any) => (
+      {sortedBooks &&
+        sortedBooks.map((book: any) => (
           <tr
             key={book.id}
             onClick={() => {
               dispatch(setSelectBook(book));
-              console.log(selectedBook);
             }}
           >
             <NavLink to="/book" className={styles.bookTitle}>

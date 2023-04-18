@@ -6,6 +6,7 @@ export const globalSlice = createSlice({
     data: [],
     selectBook: [],
     sortOrder: [],
+    sortedBooks: [],
   },
   reducers: {
     setData: (state, action) => {
@@ -17,9 +18,13 @@ export const globalSlice = createSlice({
     setSortOrder: (state, action) => {
       state.sortOrder = action.payload;
     },
+    setSortedBooks: (state, action) => {
+      state.sortedBooks = action.payload;
+    },
   },
 });
 
-export const { setData, setSelectBook, setSortOrder } = globalSlice.actions;
+export const { setData, setSelectBook, setSortOrder, setSortedBooks } =
+  globalSlice.actions;
 
 export default globalSlice.reducer;
