@@ -7,12 +7,12 @@ import { setSelectBook } from "../../components/Redux/GlobalSlice";
 import { bookData } from "../../testData/testData";
 import "@testing-library/jest-dom/extend-expect";
 
-const renderBookPage = (book: any) => {
+const renderBookPage = () => {
   store.dispatch(setSelectBook(bookData.items[0]));
   render(
     <Provider store={store}>
       <BrowserRouter>
-        <BookPage book={book} />
+        <BookPage />
       </BrowserRouter>
     </Provider>
   );
@@ -20,7 +20,7 @@ const renderBookPage = (book: any) => {
 
 describe("BookPage Tests", () => {
   test("It should render with relevant content", () => {
-    renderBookPage(bookData.items);
+    renderBookPage();
     const link = screen.getAllByRole("link");
     const title = screen.getByText(bookData.items[0].volumeInfo.title);
     const description = screen.getByText(
@@ -32,7 +32,7 @@ describe("BookPage Tests", () => {
     expect(description).toBeInTheDocument();
   });
   test("Clicking the BackButton sends the user back to /displayAll", () => {
-    renderBookPage(bookData.items);
+    renderBookPage();
     const link = screen.getAllByRole("link");
     fireEvent.click(link[0]);
     expect(window.location.pathname).toBe("/displayAll");

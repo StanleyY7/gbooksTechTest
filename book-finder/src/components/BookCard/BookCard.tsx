@@ -1,7 +1,8 @@
 import styles from "./BookCard.module.scss";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-const BookCard: any = () => {
+
+const BookCard = () => {
   const book = useSelector((state: any) => state.global.selectBook);
   return (
     <>

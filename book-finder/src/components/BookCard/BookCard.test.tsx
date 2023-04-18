@@ -7,12 +7,12 @@ import { bookData } from "../../testData/testData";
 import { BrowserRouter } from "react-router-dom";
 import { setSelectBook } from "../Redux/GlobalSlice";
 
-const renderBookCard = (book: any) => {
+const renderBookCard = () => {
   store.dispatch(setSelectBook(bookData.items[0]));
   render(
     <Provider store={store}>
       <BrowserRouter>
-        <BookCard book={book} />
+        <BookCard />
       </BrowserRouter>
     </Provider>
   );
@@ -20,7 +20,7 @@ const renderBookCard = (book: any) => {
 
 describe("BookList tests", () => {
   test("It should render with relevant data/content", () => {
-    renderBookCard(bookData.items);
+    renderBookCard();
     const link = screen.getByRole("link");
     const title = screen.getByText(bookData.items[0].volumeInfo.title);
     const description = screen.getByText(
