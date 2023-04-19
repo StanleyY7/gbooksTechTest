@@ -1,9 +1,10 @@
 import styles from "./BookCard.module.scss";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { State } from "../../types/types";
 
 const BookCard = () => {
-  const book = useSelector((state: any) => state.global.selectBook);
+  const book = useSelector((state: State) => state.global.selectBook);
   return (
     <>
       <section className={styles.alignment__wrapper}>
