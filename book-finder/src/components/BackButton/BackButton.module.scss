@@ -1,3 +1,5 @@
+@import "../../theme.scss";
+
 .BackButton {
   position: fixed;
   top: 1.5%;
@@ -5,14 +7,14 @@
   border-radius: 0.5rem;
   border: none;
   padding: 0.75rem;
-  background-color: black;
-  color: white;
+  background-color: $button_color;
+  color: $buttonText_color;
   cursor: pointer;
   transition: 0.5s ease;
   font-size: 1.05rem;
   &:hover {
     transform: scale(1.04);
-    background-color: rgb(126, 232, 232);
+    background-color: $highlight_color;
   }
 }
 

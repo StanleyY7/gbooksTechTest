@@ -1,7 +1,8 @@
+@import "../../theme.scss";
 .bookTitle {
   transform: 0.5s ease;
   text-decoration: none;
-  color: black;
+  color: $button_color;
   cursor: pointer;
   &:hover {
     color: rgb(0, 166, 166);

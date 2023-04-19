@@ -1,9 +1,10 @@
 import styles from "./Sort.module.scss";
 import { setSortOrder } from "../Redux/GlobalSlice";
 import { useDispatch } from "react-redux";
+import { ChangeEvent } from "react";
 const Sort = () => {
   const dispatch = useDispatch();
-  const handleSortChange = (event: any) => {
+  const handleSortChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const sortOrder = event.target.value;
     dispatch(setSortOrder(sortOrder));
   };

@@ -23,6 +23,7 @@ const Table = () => {
         </div>
         <br />
         <br />
+        <br />
       </section>
     </>
   );

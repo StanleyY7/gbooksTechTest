@@ -10,13 +10,14 @@ import { useQuery } from "react-query";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./BookList.module.scss";
+import { Books, State, sortFunction } from "../../types/types";
 
 const BookList = () => {
   const dispatch = useDispatch();
 
-  const sortOrder = useSelector((state: any) => state.global.sortOrder);
-  const books = useSelector((state: any) => state.global.data);
-  const sortedBooks = useSelector((state: any) => state.global.sortedBooks);
+  const sortOrder = useSelector((state: State) => state.global.sortOrder);
+  const books = useSelector((state: State) => state.global.data);
+  const sortedBooks = useSelector((state: State) => state.global.sortedBooks);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,19 +29,19 @@ const BookList = () => {
   }, []);
 
   useEffect(() => {
-    let sortFunc: any = () => console.log("unimplemented sort function");
+    let sortFunc: sortFunction = () => 0;
 
     if (sortOrder === "title") {
-      sortFunc = (a: any, b: any) =>
+      sortFunc = (a: Books, b: Books) =>
         a.volumeInfo.title.localeCompare(b.volumeInfo.title);
     } else if (sortOrder === "authors") {
-      sortFunc = (a: any, b: any) => {
+      sortFunc = (a: Books, b: Books) => {
         const authorA = a.volumeInfo.authors ? a.volumeInfo.authors[0] : "";
         const authorB = b.volumeInfo.authors ? b.volumeInfo.authors[0] : "";
         return authorA.localeCompare(authorB);
       };
     } else if (sortOrder === "publishedDate") {
-      sortFunc = (a: any, b: any) => {
+      sortFunc = (a: Books, b: Books) => {
         const dateA = a.volumeInfo.publishedDate
           ? a.volumeInfo.publishedDate
           : "";
@@ -58,7 +59,7 @@ const BookList = () => {
   return (
     <>
       {sortedBooks &&
-        sortedBooks.map((book: any) => (
+        sortedBooks.map((book: Books) => (
           <tr
             key={book.id}
             onClick={() => {

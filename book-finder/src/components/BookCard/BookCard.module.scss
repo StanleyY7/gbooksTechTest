@@ -1,9 +1,11 @@
+@import "../../theme.scss";
+
 .BookCard__wrapper {
   border: 0.125rem groove black;
   height: max-content;
   width: 50vw;
   border-radius: 0.5rem;
-  box-shadow: 12px 12px 2px 1px rgb(126, 232, 232);
+  box-shadow: 12px 12px 2px 1px $highlight_color;
 
   > h1 {
     text-align: center;
@@ -45,7 +47,7 @@
 .description__wrapper {
   height: 15rem;
   width: 42.5vw;
-  background-color: #faf3dd;
+  background-color: $secondary_color;
   border-radius: 0.5rem;
   margin: auto;
   overflow-y: scroll;
