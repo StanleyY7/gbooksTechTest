@@ -8,13 +8,13 @@ import {
 import { fetchBooks } from "../../services/books";
 import { useQuery } from "react-query";
 import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./BookList.module.scss";
 import { Books, State, sortFunction } from "../../types/types";
 
 const BookList = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const sortOrder = useSelector((state: State) => state.global.sortOrder);
   const books = useSelector((state: State) => state.global.data);
   const sortedBooks = useSelector((state: State) => state.global.sortedBooks);
@@ -66,9 +66,15 @@ const BookList = () => {
               dispatch(setSelectBook(book));
             }}
           >
-            <NavLink to="/book" className={styles.bookTitle}>
-              <td>{book.volumeInfo.title}</td>
-            </NavLink>
+            <td
+              className={styles.bookTitle}
+              onClick={() => {
+                navigate("/book");
+              }}
+            >
+              {book.volumeInfo.title}
+            </td>
+
             <td>
               {book.volumeInfo.authors
                 ? book.volumeInfo.authors.join(", ")

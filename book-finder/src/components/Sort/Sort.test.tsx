@@ -20,11 +20,36 @@ describe("Sort Component Tests", () => {
     expect(select).toBeInTheDocument();
   });
 
-  test("should update selected value upon selecting an option from the select/sort dropdown", () => {
+  test("should update selected value to title upon selecting the title option from the select/sort dropdown", () => {
     renderSort();
     const select = screen.getByRole("combobox");
     expect(select).toHaveValue("");
     fireEvent.change(select, { target: { value: "title" } });
-    expect(select).toHaveValue("title"); //
+    expect(select).toHaveValue("title");
+  });
+
+  test("should update selected value to authors upon selecting the authors option from the select/sort dropdown", () => {
+    renderSort();
+    const select = screen.getByRole("combobox");
+    expect(select).toHaveValue("");
+    fireEvent.change(select, { target: { value: "authors" } });
+    expect(select).toHaveValue("authors");
+  });
+
+  test("should update selected value to publishedDate upon selecting the publishedDate option from the select/sort dropdown", () => {
+    renderSort();
+    const select = screen.getByRole("combobox");
+    expect(select).toHaveValue("");
+    fireEvent.change(select, { target: { value: "publishedDate" } });
+    expect(select).toHaveValue("publishedDate");
+  });
+
+  test("should update selected value to an empty string upon selecting none option after initially being at title from the select/sort dropdown", () => {
+    renderSort();
+    const select = screen.getByRole("combobox");
+    fireEvent.change(select, { target: { value: "title" } });
+    expect(select).toHaveValue("title");
+    fireEvent.change(select, { target: { value: "" } });
+    expect(select).toHaveValue("");
   });
 });
