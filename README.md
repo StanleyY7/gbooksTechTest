@@ -76,7 +76,13 @@ To create a web application that fetches data from the Google Books API (query b
 
 - Setup Github Workflow for tests.
 - Added badge for workflow to Readme, completed Readme.
-- More tests
+- Added more unit tests of components and containers
+
+### 19/04/2023
+
+- Added type interfaces to replace all any types that were used.
+- Added more e2e tests, integration tests and unit tests for components.
+- Improved sorting function by improving performance by altering my logic as per senior feedback/guidance.
 
 ## Challenges
 
