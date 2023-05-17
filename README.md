@@ -1,6 +1,8 @@
 # Blossom Books (for tech test)
 
-Link: https://classy-marzipan-c9e4ad.netlify.app
+Link: https://classy-marzipan-c9e4ad.netlify.app (deployed on netlify via manual drop)
+
+Link: https://testing-wildflower-23431.fly.dev/ (deployed via Dockerfile on fly.io)
 
 ![BB](https://user-images.githubusercontent.com/119549394/232633436-bba6ec67-abfd-4c36-af96-d1a62c0000d2.png)
 
